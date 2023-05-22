@@ -1,9 +1,18 @@
-import React from 'react'
+import React from 'react';
+import styles from "../../style.module.css";
 
-const Todo = () => {
+const Todo = ({todoItem, todoList, setTodoList}) => {
+    const deleteTodo = () => {
+        setTodoList(todoList.filter((item) => item.id !== todoItem.id))
+    };
   return (
-    <div>Todo</div>
-  )
-}
+    <div>
+        <div className = {styles.todoitem}>
+            <h3 className= {styles.todoname}>{todoItem.name}</h3>
+            <button onClick={deleteTodo} className={styles.deletebutton}>Done</button>
+        </div>
+    </div>
+  );
+};
 
-export default Todo
+export default Todo;
